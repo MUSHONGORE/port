@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Mushongore | Developer & Producer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+         <link rel="shortcut icon" href="image.png" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C41F2;
+            --primary-dark: #5a32e0;
+            --secondary: #FF4D8D;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #F5F5F7;
+            --gray: #2A2A2A;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .header {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(28,28,28,0.7) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108,65,242,0.1) 0%, rgba(10,10,10,0) 70%);
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-dark {
+            background-color: var(--dark);
+        }
+
+        .card {
+            background-color: var(--gray);
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-tech {
+            background-color: var(--primary-dark);
+            color: white;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .music-player {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .player-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 6px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            width: 0;
+        }
+
+        .time-display {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .btn-play {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-play:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .visualizer {
+            height: 100px;
+            width: 100%;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .visualizer-bar {
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to top, var(--primary), var(--secondary));
+            border-radius: 2px;
+            transition: height 0.1s ease;
+        }
+
+        footer {
+            background-color: var(--dark);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bruno</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#music">Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Connect</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Bruno Mushongore</h1>
+                    <p class="hero-subtitle">Full Stack Developer & Music Producer</p>
+                    <p class="lead">I build innovative web applications and produce captivating beats in FL Studio. Where code meets creativity.</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://instagram.com/mr.k4pel_1" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/Bruno K4pel" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:dingk8cz@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:brunodingk@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="visualizer" id="heroVisualizer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="lead">Hey there! I'm Bruno, an 18-year-old developer and music producer from Zimbabwe.</p>
+                    <p>I'm passionate about creating seamless digital experiences through code and expressing myself through music production. My journey began when I discovered the intersection between technology and creativity, and I've been hooked ever since.</p>
+                    <p>When I'm not coding, you'll find me crafting beats in FL Studio, experimenting with new sounds, or exploring the latest web technologies.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-code fa-3x mb-3" style="color: var(--primary);"></i>
+                                    <h5 class="card-title">Development</h5>
+                                    <p class="card-text">Building full-stack applications with modern technologies</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-music fa-3x mb-3" style="color: var(--secondary);"></i>
+                                    <h5 class="card-title">Music Production</h5>
+                                    <p class="card-text">Creating beats and soundscapes in FL Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-dark" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">E-Commerce Platform</h5>
+                            <p class="card-text">A full-featured online store with payment integration and admin dashboard.</p>
+                            <div class="mb-3">
+                                <span class="badge badge-tech">React</span>
+                                <span class="badge badge-tech">Node.js</span>
+                                <span class="badge badge-tech">MongoDB</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Music Visualizer</h5>
+                            <p class="card-text">Interactive web audio visualizer that responds to music in real-time.</p>
+                            <div class="mb-3">
+                                <span class="badge badge-tech">JavaScript</span>
+                                <span class="badge badge-tech">Web Audio API</span>
+                                <span class="badge badge-tech">Canvas</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Task Management App</h5>
+                            <p class="card-text">Productivity application with drag-and-drop functionality and team collaboration.</p>
+                            <div class="mb-3">
+                                <span class="badge badge-tech">Vue.js</span>
+                                <span class="badge badge-tech">Firebase</span>
+                                <span class="badge badge-tech">Tailwind CSS</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="section" id="music">
+        <div class="container">
+            <h2 class="section-title">My Music</h2>
+            <p class="lead mb-5">Check out some of my latest FL Studio productions:</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="music-player">
+                        <h5 class="player-title">Rise Again</h5>
+                        <audio id="track1" src="Rise again.mp3"></audio>
+                        <div class="player-controls">
+                            <button class="btn-play" onclick="togglePlay('track1', this)">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-container" onclick="seek('track1', event)">
+                                <div class="progress-bar" id="progress1"></div>
+                            </div>
+                            <div class="time-display" id="time1">0:00 / 0:00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="music-player">
+                        <h5 class="player-title">Rise Again (Remix)</h5>
+                        <audio id="track2" src="Rise again (Remix).mp3"></audio>
+                        <div class="player-controls">
+                            <button class="btn-play" onclick="togglePlay('track2', this)">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="progress-container" onclick="seek('track2', event)">
+                                <div class="progress-bar" id="progress2"></div>
+                            </div>
+                            <div class="time-display" id="time2">0:00 / 0:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visualizer" id="musicVisualizer"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-dark" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <p class="lead">Feel free to reach out through my social media or email:</p>
+                    <div class="d-flex flex-column gap-3">
+                        <a href="https://instagram.com/mr.k4pel_1" class="btn btn-outline-light d-flex align-items-center gap-3">
+                            <i class="fab fa-instagram fa-lg"></i>
+                            <span>@mr.k4pel_1</span>
+                        </a>
+                        <a href="https://facebook.com/Bruno K4pel" class="btn btn-outline-light d-flex align-items-center gap-3">
+                            <i class="fab fa-facebook-f fa-lg"></i>
+                            <span>Bruno K4pel</span>
+                        </a>
+                        <a href="mailto:dingk8cz@gmail.com" class="btn btn-outline-light d-flex align-items-center gap-3">
+                            <i class="fas fa-envelope fa-lg"></i>
+                            <span>dingk8cz@gmail.com</span>
+                        </a>
+                        <a href="mailto:brunodingk@gmail.com" class="btn btn-outline-light d-flex align-items-center gap-3">
+                            <i class="fas fa-envelope fa-lg"></i>
+                            <span>brunodingk@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Currently Available For</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent text-light border-light">Freelance Development Projects</li>
+                                <li class="list-group-item bg-transparent text-light border-light">Beat Production Commissions</li>
+                                <li class="list-group-item bg-transparent text-light border-light">Collaborations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2023 Bruno Mushongore. All rights reserved.</p>
+            <div class="social-icons justify-content-center">
+                <a href="https://instagram.com/mr.k4pel_1" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/Bruno K4pel" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:dingk8cz@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Music Player Functionality
+        function togglePlay(trackId, button) {
+            const audio = document.getElementById(trackId);
+            const icon = button.querySelector('i');
+            
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                updateProgress(trackId);
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            }
+        }
+        
+        function seek(trackId, event) {
+            const audio = document.getElementById(trackId);
+            const progressContainer = event.currentTarget;
+            const progressBar = progressContainer.querySelector('.progress-bar');
+            const rect = progressContainer.getBoundingClientRect();
+            const pos = (event.clientX - rect.left) / rect.width;
+            progressBar.style.width = pos * 100 + '%';
+            audio.currentTime = pos * audio.duration;
+        }
+        
+        function updateProgress(trackId) {
+            const audio = document.getElementById(trackId);
+            const progressBar = document.getElementById('progress' + trackId.slice(-1));
+            const timeDisplay = document.getElementById('time' + trackId.slice(-1));
+            
+            if (!audio.paused) {
+                requestAnimationFrame(() => updateProgress(trackId));
+            }
+            
+            const currentTime = formatTime(audio.currentTime);
+            const duration = formatTime(audio.duration);
+            timeDisplay.textContent = `${currentTime} / ${duration}`;
+            
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        
+        // Initialize all audio elements
+        document.querySelectorAll('audio').forEach(audio => {
+            audio.addEventListener('ended', function() {
+                const button = document.querySelector(`button[onclick="togglePlay('${this.id}', this)"]`);
+                const icon = button.querySelector('i');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                
+                const progressBar = document.getElementById('progress' + this.id.slice(-1));
+                progressBar.style.width = '0%';
+                
+                const timeDisplay = document.getElementById('time' + this.id.slice(-1));
+                timeDisplay.textContent = `0:00 / ${formatTime(this.duration)}`;
+            });
+            
+            audio.addEventListener('loadedmetadata', function() {
+                const timeDisplay = document.getElementById('time' + this.id.slice(-1));
+                timeDisplay.textContent = `0:00 / ${formatTime(this.duration)}`;
+            });
+        });
+        
+        // Visualizer Animation
+        function createVisualizer(containerId, barCount = 50) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            for (let i = 0; i < barCount; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'visualizer-bar';
+                bar.style.left = `${(i / barCount) * 100}%`;
+                bar.style.height = `${5 + Math.random() * 20}px`;
+                container.appendChild(bar);
+            }
+            
+            const bars = container.querySelectorAll('.visualizer-bar');
+            
+            function animate() {
+                bars.forEach(bar => {
+                    const randomHeight = 5 + Math.random() * 50;
+                    bar.style.height = `${randomHeight}px`;
+                    bar.style.opacity = 0.3 + Math.random() * 0.7;
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        // Initialize visualizers
+        createVisualizer('heroVisualizer');
+        createVisualizer('musicVisualizer');
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
